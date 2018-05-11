@@ -18,9 +18,9 @@ def packages(bot,update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Please go through this document")
     bot.sendDocument(chat_id=update.message.chat_id, document=open('A2.pdf', 'rb'))
 
-def gitname(bot, update):
-    git_name = update.message.text.replace('/name','')
-    git_name = git_name.replace(' ','')
+def getname(bot, update):
+    get_name = update.message.text.replace('/name','')
+    get_name = get_name.replace(' ','')
     global s
     s="Name : "+git_name+'\n'
     bot.sendMessage(chat_id=update.message.chat_id, text="Entered name")
@@ -57,7 +57,7 @@ updater = Updater(token='') #enter token
 dispatcher = updater.dispatcher
 start_handler = CommandHandler('start', start)
 package_handler = CommandHandler('packages', packages)
-name_handler = CommandHandler('name', gitname)
+name_handler = CommandHandler('name', getname)
 email_handler = CommandHandler('email', emailfunc)
 phone_handler = CommandHandler('phone', phonefunc)
 submit_handler = CommandHandler('submit', submit)
